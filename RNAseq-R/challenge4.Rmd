@@ -1,0 +1,24 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+#remotes::install_github("mblue9/RNAseq-R@test_website")
+```
+
+```{r}
+load("challenge4.Rdata")
+```
+
+Write the R code required for the first Challenge.
+
+```{r challenge4, exercise=TRUE}
+```
