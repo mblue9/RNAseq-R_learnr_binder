@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.0
+  - r-learnr
+  - r-limma
+  - r-edgeR
+  - r-Glimma
+  - r-limma
+  - r-edgeR
+  - r-Glimma
+  - r-org.Mm.eg.db
+  - r-BiasedUrn
+  - r-GO.db
+  - r-gplots
+  - r-RColorBrewer
+  - r-NMF
+  
