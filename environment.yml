@@ -3,16 +3,12 @@ channels:
 dependencies:
   - r-base=4.0
   - r-learnr
-  - r-limma
-  - r-edgeR
-  - r-Glimma
-  - r-limma
-  - r-edgeR
-  - r-Glimma
-  - r-org.Mm.eg.db
-  - r-BiasedUrn
-  - r-GO.db
   - r-gplots
-  - r-RColorBrewer
-  - r-NMF
-  
+  - r-rcolorbrewer
+  - r-nmf
+  - r-biasedurn
+  - bioconductor-limma
+  - bioconductor-edger
+  - bioconductor-glimma
+  - bioconductor-org.mm.eg.db
+  - bioconductor-go.db
