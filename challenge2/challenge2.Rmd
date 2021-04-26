@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup2, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -16,10 +16,12 @@ library(RColorBrewer)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 2**
 
 1. Redo the plots with the colours for status (lactate, pregnant, virgin): `brewer.pal(3,"Dark2")`
 2. Change the plotting characters to symbols, such that basal samples have the value `1` and luminal samples have the value `4`. HINT: use `pch` argument.

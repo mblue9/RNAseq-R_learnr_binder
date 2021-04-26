@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup11, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -15,10 +15,12 @@ library(limma)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 11**
 
 1. Test whether the MYC signalling pathways tend to be differentially expressed between luminal pregnant vs lactating (the second contrast).
 

@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup8, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -15,10 +15,12 @@ library(limma)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 8**
 
 Change the cut-off so that we are interested in genes that change at least 50\% on the fold change scale.
 

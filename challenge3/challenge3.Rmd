@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup3, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -16,10 +16,12 @@ library(RColorBrewer)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 3**
 
 1. Change the colour scheme to "PiYG" and redo the heatmap. Try `?RColorBrewer` and see what other colour schemes are available.
 2. Change the sample names to `group` using the `labCol` argument

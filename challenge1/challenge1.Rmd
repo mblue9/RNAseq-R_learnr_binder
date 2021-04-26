@@ -12,10 +12,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 1**
 
 1. Plot the counts-per-million versus counts for the second sample.
 2. Add a vertical line at 0.5 and a horizontal line at 10.

@@ -1,0 +1,8 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r, child=c('../challenge1/challenge1.Rmd', '../challenge2/challenge2.Rmd', '../challenge3/challenge3.Rmd', '../challenge4/challenge4.Rmd', '../challenge5/challenge5.Rmd', '../challenge6/challenge6.Rmd', '../challenge7/challenge7.Rmd', '../challenge8/challenge8.Rmd', '../challenge9/challenge9.Rmd', '../challenge10/challenge10.Rmd', '../challenge11/challenge11.Rmd', '../challenge12/challenge12.Rmd')}
+```

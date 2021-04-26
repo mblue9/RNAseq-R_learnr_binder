@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup4, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -15,10 +15,12 @@ library(limma)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 4**
 
 Plot the biased and unbiased MD plots side by side for the same sample to see the before and after TMM normalisation effect.
 

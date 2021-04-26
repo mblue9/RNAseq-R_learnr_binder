@@ -4,7 +4,7 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup12, include=FALSE}
 library(learnr)
 library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
@@ -15,10 +15,12 @@ library(limma)
 ```
 
 ```{r}
-load("../data/data.Rdata")
+if(!exists("sampleinfo")) {
+    load("../data/data.Rdata")
+}
 ```
 
-**Challenge**
+**Challenge 12**
 
 1. Produce a barcodeplot for luminal pregnant vs lactating for the gene set DANG_REGULATED_BY_MYC_UP. Does the pattern of enrichment look as strong?
 
@@ -60,32 +62,5 @@ barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET
 ```
 
 ```{r challenge12_3-code-check}
-grade_this_code()
-```
-
-
-# Solution 3
-
-```
-
-
-
-
-
-
-
-
-
-
-```{r challenge11_1, exercise=TRUE}
-myc.rst2 <- ____
-myc.rst2[____]
-````
-
-```{r challenge12_2-solution, exercise.reveal_solution = FALSE}
-barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET_GENES"]], main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES")
-```
-
-```{r challenge11_1-code-check}
 grade_this_code()
 ```
