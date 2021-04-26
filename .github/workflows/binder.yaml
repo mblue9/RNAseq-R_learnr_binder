@@ -1,6 +1,9 @@
 name: Binder
-on: [push]
-    schedule:
+on:
+  push:
+    branches:
+      - main
+  schedule:
     # run every Monday at 8AM UTC
     - cron: '0 8 * * 1'
 
