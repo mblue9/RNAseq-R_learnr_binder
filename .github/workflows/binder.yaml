@@ -1,5 +1,8 @@
 name: Binder
 on: [push]
+    schedule:
+    # run every Monday at 8AM UTC
+    - cron: '0 8 * * 1'
 
 jobs:
   Create-MyBinderOrg-Cache:
