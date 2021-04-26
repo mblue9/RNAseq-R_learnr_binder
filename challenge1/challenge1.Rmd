@@ -9,8 +9,18 @@ library(learnr)
 gradethis::gradethis_setup()
 ```
 
+```{r include=FALSE}
+library(edgeR)
+library(limma)
+library(Glimma)
+library(org.Mm.eg.db)
+library(gplots)
+library(RColorBrewer)
+library(NMF)
+```
+
 ```{r echo=FALSE}
-load("challenge1.Rdata")
+load("data.Rdata")
 ```
 
 **Challenge**
