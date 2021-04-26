@@ -20,7 +20,7 @@ library(NMF)
 ```
 
 ```{r echo=FALSE}
-load("data.Rdata")
+load("../data/data.Rdata")
 ```
 
 **Challenge**
@@ -43,5 +43,5 @@ abline(h=10,col="blue")
 
 
 ```{r challenge-code-check}
-grade_code()
+grade_this_code()
 ```

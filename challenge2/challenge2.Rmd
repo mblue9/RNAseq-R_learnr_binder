@@ -20,7 +20,7 @@ library(NMF)
 ```
 
 ```{r echo=FALSE}
-load("data.Rdata")
+load("../data/data.Rdata")
 ```
 
 **Challenge**
@@ -32,11 +32,11 @@ load("data.Rdata")
 ```{r challenge, exercise=TRUE}
 # Get some nicer colours from brewer pal, using the "Dark2" palette.
 cols <- brewer.pal(3,"Dark2")
-col.status <- ___
-char.celltype <- ___
-plotMDS(y, col=___, pch=___, cex=2)
-legend("topleft",___)
-legend("bottom", ___)
+col.status <- ____
+char.celltype <- ____
+plotMDS(y, col=____, pch=___, cex=2)
+legend("topleft",____)
+legend("bottom", ____)
 ```
 
 ```{r, challenge-solution, exercise.reveal_solution = FALSE}
@@ -50,5 +50,5 @@ legend("bottom",legend=levels(sampleinfo$CellType),pch=c(1,4))
 
 
 ```{r challenge-code-check}
-grade_code()
+grade_this_code()
 ```

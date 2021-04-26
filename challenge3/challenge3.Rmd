@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r}
-load("challenge3.Rdata")
+load("data.Rdata")
 ```
 
 Write the R code required for the first Challenge.
