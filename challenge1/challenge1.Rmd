@@ -7,21 +7,33 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-knitr::opts_chunk$set(echo = FALSE)
+gradethis::gradethis_setup()
 ```
 
-```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
-```
-
-```{r}
+```{r echo=FALSE}
 load("challenge1.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
 
-```{r challenge1, exercise=TRUE}
+1. Plot the counts-per-million versus counts for the second sample.
+2. Add a vertical line at 0.5 and a horizontal line at 10.
+3. Add the lines again, colouring them blue
+HINT: use the `col` parameter.
+
+```{r challenge, exercise=TRUE}
 # Try running this code then edit
 plot(myCPM[,1],countdata[,1],ylim=c(0,50),xlim=c(0,3))
 abline(v=0.5)
+```
+
+```{r, challenge-solution, exercise.reveal_solution = FALSE}
+plot(myCPM[,2],countdata[,2],ylim=c(0,50),xlim=c(0,3))
+abline(v=0.5,col=4)
+abline(h=10,col=4)
+```
+
+
+```{r challenge-code-check}
+grade_code()
 ```
