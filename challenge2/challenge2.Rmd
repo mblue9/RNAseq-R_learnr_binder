@@ -3,22 +3,43 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
-knitr::opts_chunk$set(echo = FALSE)
+gradethis::gradethis_setup()
 ```
 
-```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
-```
 
-```{r}
+```{r echo=FALSE}
 load("challenge2.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
 
-```{r challenge2, exercise=TRUE}
+1. Redo the plots with the colours for status (lactate, pregnant, virgin): `brewer.pal(3,"Dark2")`
+2. Change the plotting characters to symbols, such that basal samples have the value `1` and luminal samples have the value `4`. HINT: use `pch` argument.
+3. Add a legend for status at the top left and for cell type at the bottom.
+
+```{r challenge, exercise=TRUE}
+# Get some nicer colours from brewer pal, using the "Dark2" palette.
+cols <- brewer.pal(3,"Dark2")
+col.status <- ___
+char.celltype <- ___
+plotMDS(y, col=___, pch=___, cex=2)
+legend("topleft",___)
+legend("bottom", ___)
+```
+
+```{r, challenge-solution, exercise.reveal_solution = FALSE}
+cols <- brewer.pal(3,"Dark2")
+char.celltype <- c(1,4)[sampleinfo$CellType]
+col.status <- cols[factor(sampleinfo$Status)]
+plotMDS(y,col=col.status,pch=char.celltype,cex=2)
+legend("topleft",legend=levels(sampleinfo$Status),col=cols,pch=16)
+legend("bottom",legend=levels(sampleinfo$CellType),pch=c(1,4))
+```
+
+
+```{r challenge-code-check}
+grade_code()
 ```

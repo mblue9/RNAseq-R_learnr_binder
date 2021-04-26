@@ -3,7 +3,6 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
@@ -18,8 +17,7 @@ load("challenge1.Rdata")
 
 1. Plot the counts-per-million versus counts for the second sample.
 2. Add a vertical line at 0.5 and a horizontal line at 10.
-3. Add the lines again, colouring them blue
-HINT: use the `col` parameter.
+3. Add the lines again, colouring them blue. HINT: use the `col` parameter.
 
 ```{r challenge, exercise=TRUE}
 # Try running this code then edit
@@ -29,8 +27,8 @@ abline(v=0.5)
 
 ```{r, challenge-solution, exercise.reveal_solution = FALSE}
 plot(myCPM[,2],countdata[,2],ylim=c(0,50),xlim=c(0,3))
-abline(v=0.5,col=4)
-abline(h=10,col=4)
+abline(v=0.5,col="blue")
+abline(h=10,col="blue")
 ```
 
 
