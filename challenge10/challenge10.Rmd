@@ -1,0 +1,45 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(limma)
+```
+
+```{r}
+load("../data/data.Rdata")
+```
+
+**Challenge**
+
+1. Run `camera` on the second contrast in the contrast matrix.
+2. Run `camera` on a different set of MSigDB gene sets, the hallmark datasets, `mouse_H_v5.rdata`.
+You will need to load in the hallmark gene sets. Call the object `Mm.H`.
+
+```{r challenge10, exercise=TRUE}
+Mm.H <- readRDS(url("http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds"))
+H.ind <- ____
+H.camera <- ____
+table(H.camera$FDR < ____)
+H.camera[1:10,]
+```
+
+```{r challenge10-solution, exercise.reveal_solution = FALSE}
+Mm.H <- readRDS(url("http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds"))
+H.ind <- ids2indices(Mm.H, rownames(v))
+H.camera <- camera(v,index=H.ind,design=design,contrast = cont.matrix[,1],inter.gene.cor=0.05)
+table(H.camera$FDR < 0.05)
+H.camera[1:10,]
+```
+
+```{r challenge10-code-check}
+grade_this_code()
+```

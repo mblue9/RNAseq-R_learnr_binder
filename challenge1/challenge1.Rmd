@@ -4,22 +4,14 @@ output:
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r setup1, include=FALSE}
 library(learnr)
-gradethis::gradethis_setup()
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r include=FALSE}
-library(edgeR)
-library(limma)
-library(Glimma)
-library(org.Mm.eg.db)
-library(gplots)
-library(RColorBrewer)
-library(NMF)
-```
 
-```{r echo=FALSE}
+```{r}
 load("../data/data.Rdata")
 ```
 
@@ -29,19 +21,19 @@ load("../data/data.Rdata")
 2. Add a vertical line at 0.5 and a horizontal line at 10.
 3. Add the lines again, colouring them blue. HINT: use the `col` parameter.
 
-```{r challenge, exercise=TRUE}
+```{r challenge1, exercise=TRUE}
 # Try running this code then edit
 plot(myCPM[,1],countdata[,1],ylim=c(0,50),xlim=c(0,3))
 abline(v=0.5)
 ```
 
-```{r, challenge-solution, exercise.reveal_solution = FALSE}
+```{r, challenge1-solution, exercise.reveal_solution = FALSE}
 plot(myCPM[,2],countdata[,2],ylim=c(0,50),xlim=c(0,3))
 abline(v=0.5,col="blue")
 abline(h=10,col="blue")
 ```
 
 
-```{r challenge-code-check}
+```{r challenge1-code-check}
 grade_this_code()
 ```

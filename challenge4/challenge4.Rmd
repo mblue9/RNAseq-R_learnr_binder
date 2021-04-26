@@ -3,22 +3,41 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
+library(limma)
 ```
 
 ```{r}
-load("challenge4.Rdata")
+load("../data/data.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
+
+Plot the biased and unbiased MD plots side by side for the same sample to see the before and after TMM normalisation effect.
 
 ```{r challenge4, exercise=TRUE}
+par(____)
+plotMD(____)
+abline(____)
+plotMD(____)
+abline(____)
+```
+
+```{r challenge4-solution, exercise.reveal_solution = FALSE}
+par(mfrow=c(1,2))
+plotMD(logcounts,column = 11)
+abline(h=0,col="grey")
+plotMD(y,column = 11)
+abline(h=0,col="grey")
+```
+
+```{r challenge4-code-check}
+grade_this_code()
 ```

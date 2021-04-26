@@ -1,0 +1,55 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(limma)
+```
+
+```{r}
+load("../data/data.Rdata")
+```
+
+**Challenge**
+
+1. Test whether the MYC signalling pathways tend to be differentially expressed between luminal pregnant vs lactating (the second contrast).
+
+```{r challenge11_1, exercise=TRUE}
+myc.rst2 <- ____
+myc.rst2[____]
+````
+
+```{r challenge11_1-solution, exercise.reveal_solution = FALSE}
+myc.rst2 <- roast(v,index=c2.ind[myc],design=design,contrast=cont.matrix[,2],nrot=999)
+myc.rst2[1:15,]
+```
+
+```{r challenge11_1-code-check}
+grade_this_code()
+```
+
+2. Look for gene sets containing "WNT" in the name and see whether they tend to be differentially expressed in basal pregnant vs lactating.
+
+```{r challenge11_2, exercise=TRUE}
+wnt <- grep(____)
+wnt.rst <- ____
+wnt.rst[____]
+```
+
+```{r challenge11_2-solution, exercise.reveal_solution = FALSE}
+wnt <- grep("WNT",names(c2.ind))
+wnt.rst <- roast(v,index=c2.ind[wnt],design=design,contrast=cont.matrix[,1],nrot=999)
+wnt.rst[1:15,]
+```
+
+```{r challenge11_2-code-check}
+grade_this_code()
+```

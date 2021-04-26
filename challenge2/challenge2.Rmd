@@ -6,20 +6,16 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-gradethis::gradethis_setup()
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include=FALSE}
-library(edgeR)
 library(limma)
-library(Glimma)
-library(org.Mm.eg.db)
-library(gplots)
 library(RColorBrewer)
-library(NMF)
 ```
 
-```{r echo=FALSE}
+```{r}
 load("../data/data.Rdata")
 ```
 
@@ -29,7 +25,7 @@ load("../data/data.Rdata")
 2. Change the plotting characters to symbols, such that basal samples have the value `1` and luminal samples have the value `4`. HINT: use `pch` argument.
 3. Add a legend for status at the top left and for cell type at the bottom.
 
-```{r challenge, exercise=TRUE}
+```{r challenge2, exercise=TRUE}
 # Get some nicer colours from brewer pal, using the "Dark2" palette.
 cols <- brewer.pal(3,"Dark2")
 col.status <- ____
@@ -39,7 +35,7 @@ legend("topleft",____)
 legend("bottom", ____)
 ```
 
-```{r, challenge-solution, exercise.reveal_solution = FALSE}
+```{r, challenge2-solution, exercise.reveal_solution = FALSE}
 cols <- brewer.pal(3,"Dark2")
 char.celltype <- c(1,4)[sampleinfo$CellType]
 col.status <- cols[factor(sampleinfo$Status)]
@@ -49,6 +45,6 @@ legend("bottom",legend=levels(sampleinfo$CellType),pch=c(1,4))
 ```
 
 
-```{r challenge-code-check}
+```{r challenge2-code-check}
 grade_this_code()
 ```

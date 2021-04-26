@@ -1,0 +1,91 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(limma)
+```
+
+```{r}
+load("../data/data.Rdata")
+```
+
+**Challenge**
+
+1. Produce a barcodeplot for luminal pregnant vs lactating for the gene set DANG_REGULATED_BY_MYC_UP. Does the pattern of enrichment look as strong?
+
+```{r challenge12_1, exercise=TRUE}
+barcodeplot(____, main="L.PregVsLac: DANG_REGULATED_BY_MYC_UP")
+````
+
+```{r challenge12_1-solution, exercise.reveal_solution = FALSE}
+barcodeplot(fit.cont$coeff[,2], index=c2.ind[["DANG_REGULATED_BY_MYC_UP"]], main="L.PregVsLac: DANG_REGULATED_BY_MYC_UP")
+```
+
+```{r challenge12_1-code-check}
+grade_this_code()
+```
+
+2. Produce a barcode plot for the Wnt signalling pathways REACTOME_REPRESSION_OF_WNT_TARGET_GENES
+
+```{r challenge12_2, exercise=TRUE}
+barcodeplot(____, main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES")
+```
+
+```{r challenge12_2-solution, exercise.reveal_solution = FALSE}
+barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET_GENES"]], main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES")
+```
+
+```{r challenge12_2-code-check}
+grade_this_code()
+```
+
+3. You can put two gene sets on one plot, for example a set that is up-regulated and one that is down-regulated,
+by adding a gene set to the `index2` argument. Produce a barcodeplot with the two sets REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY.
+
+```{r challenge12_3, exercise=TRUE}
+barcodeplot(____, main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets")
+````
+
+```{r challenge12_3-solution, exercise.reveal_solution = FALSE}
+barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET_GENES"]], index2=c2.ind[["PID_WNT_CANONICAL_PATHWAY"]], main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets")
+```
+
+```{r challenge12_3-code-check}
+grade_this_code()
+```
+
+
+# Solution 3
+
+```
+
+
+
+
+
+
+
+
+
+
+```{r challenge11_1, exercise=TRUE}
+myc.rst2 <- ____
+myc.rst2[____]
+````
+
+```{r challenge12_2-solution, exercise.reveal_solution = FALSE}
+barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET_GENES"]], main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES")
+```
+
+```{r challenge11_1-code-check}
+grade_this_code()
+```

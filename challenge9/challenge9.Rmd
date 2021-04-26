@@ -1,0 +1,38 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(limma)
+```
+
+```{r}
+load("../data/data.Rdata")
+```
+
+**Challenge**
+
+Perform GO analysis for the second comparison, "L.PregVsLac", taking into account gene length information.
+
+```{r challenge9, exercise=TRUE}
+go_LPregvsLac <- goana(____)
+topGO(____)
+```
+
+```{r challenge9-solution, exercise.reveal_solution = FALSE}
+go_LPregvsLac <- goana(fit.cont,coef="L.PregVsLac",species="Mm",
+                       covariate=gene_length)
+topGO(go_LPregvsLac, n=10)
+```
+
+```{r challenge9-code-check}
+grade_this_code()
+```

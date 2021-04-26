@@ -1,0 +1,45 @@
+---
+output: 
+  html_document
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(gradethis)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r include=FALSE}
+library(limma)
+```
+
+```{r}
+load("../data/data.Rdata")
+```
+
+**Challenge**
+
+Change the cut-off so that we are interested in genes that change at least 50\% on the fold change scale.
+
+HINT: what is the corresponding logFC value of 50\% fold change? Assume basal.pregnant is 50\% higher than basal.lactate.
+
+```{r challenge8, exercise=TRUE}
+cutoff <- log2(____)
+fit.treat <- treat(____)
+res.treat <- decideTests(___)
+summary(____)
+topTable(____)
+```
+
+```{r challenge8-solution, exercise.reveal_solution = FALSE}
+cutoff <- log2(1.5)
+fit.treat <- treat(fit.cont,lfc=cutoff)
+res.treat <- decideTests(fit.treat)
+summary(res.treat)
+topTable(fit.treat,coef=1,sort.by="p")
+```
+
+```{r challenge8-code-check}
+grade_this_code()
+```

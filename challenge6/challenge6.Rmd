@@ -3,22 +3,39 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
+library(limma)
 ```
 
 ```{r}
-load("challenge6.Rdata")
+load("../data/data.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
+
+1. Generate the MD plot and volcano plot for the second comparison, `L.PregVsLac`. 
+2. Change the number of highlighted genes to 200 in the volcano plot.
+</div>
 
 ```{r challenge6, exercise=TRUE}
+par(____)
+plotMD(____)
+volcanoplot(____)
+```
+
+```{r challenge6-solution, exercise.reveal_solution = FALSE}
+par(mfrow=c(1,2))
+plotMD(fit.cont,coef=2,status=summa.fit[,"L.PregVsLac"], values=c(-1, 1), hl.col=c("blue","red"))
+volcanoplot(fit.cont,coef=2,highlight=200,names=fit.cont$genes$SYMBOL)
+```
+
+```{r challenge6-code-check}
+grade_this_code()
 ```

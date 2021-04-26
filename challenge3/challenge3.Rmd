@@ -3,22 +3,66 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
+library(gplots)
+library(RColorBrewer)
 ```
 
 ```{r}
-load("data.Rdata")
+load("../data/data.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
 
-```{r challenge3, exercise=TRUE}
+1. Change the colour scheme to "PiYG" and redo the heatmap. Try `?RColorBrewer` and see what other colour schemes are available.
+2. Change the sample names to `group` using the `labCol` argument
+
+```{r challenge3_1, exercise=TRUE}
+mypalette <- brewer.pal(11, ____)
+morecols <- colorRampPalette(____)   
+heatmap.2(____,col=rev(____(50)),trace="none", main="Top 500 most variable genes across samples",ColSideColors=col.cell,labCol=____,scale="row",margins = c(8,5))
 ```
+
+```{r challenge3_1-solution, exercise.reveal_solution = FALSE}
+# Solution 1 and 2
+mypalette <- brewer.pal(11,"PiYG")
+morecols <- colorRampPalette(mypalette)
+heatmap.2(highly_variable_lcpm,col=rev(morecols(50)),trace="none", main="Top 500 most variable genes across samples",ColSideColors=col.cell,labCol=group,scale="row",margins = c(8,5))
+```
+
+```{r challenge3_1-code-check}
+grade_this_code()
+```
+
+
+3. Redo the heatmap using the top 500 LEAST variable genes.
+
+
+```{r challenge3_3, exercise = TRUE}
+# Select 500 least var genes
+select_var <- ____
+# Subset logcounts matrix
+least_variable_lcpm <- ____
+heatmap.2(____,col=rev(morecols(50)),trace="none", main="Top 500 least variable genes across samples",ColSideColors=col.cell,labCol=____,scale="row",margins=c(8,5))
+```
+
+```{r challenge3_3-solution, exercise.reveal_solution = FALSE}
+# Select 500 least var genes
+select_var <- names(sort(var_genes, decreasing=FALSE))[1:500]
+head(select_var)
+# Subset logcounts matrix
+least_variable_lcpm <- logcounts[select_var,]
+heatmap.2(least_variable_lcpm,col=rev(morecols(50)),trace="none", main="Top 500 least variable genes across samples",ColSideColors=col.cell,labCol=group,scale="row",margins=c(8,5))
+```
+
+```{r challenge3_3-code-check}
+grade_this_code()
+```
+

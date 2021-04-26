@@ -3,22 +3,56 @@ output:
   html_document
 runtime: shiny_prerendered
 ---
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.contentWindow.min.js" type="text/javascript"></script>
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(gradethis)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include=FALSE}
-#remotes::install_github("mblue9/RNAseq-R@test_website")
+library(limma)
 ```
 
 ```{r}
-load("challenge5.Rdata")
+load("../data/data.Rdata")
 ```
 
-Write the R code required for the first Challenge.
+**Challenge**
+
+1. Add another contrast to the contrasts matrix: `L.PregVsLac = luminal.pregnant - luminal.lactate` and re-run the code above. You should have two comparisons in `fit.cont` now.
+2. Check out the `vennDiagram` function
+(HINT: type `?vennDiagram`).
+Can you show the overlap of differentially expressed genes between the two comparisons? How many genes are commonly differentially expressed?
 
 ```{r challenge5, exercise=TRUE}
+cont.matrix <- makeContrasts(B.PregVsLac=____,
+                             L.PregVsLac=____,
+                             levels=____)
+fit.cont <- ____
+fit.cont <- ____
+summa.fit <- ____
+summary(____)
+# Venn diagram
+par(mfrow=c(1,1))
+vennDiagram(____,include=____,counts.col=c("purple", "black"),
+    circle.col = c("blue", "green3"))
+```
+
+```{r challenge5-solution, exercise.reveal_solution = FALSE}
+cont.matrix <- makeContrasts(B.PregVsLac=basal.pregnant - basal.lactate,
+                             L.PregVsLac=luminal.pregnant - luminal.lactate,
+                             levels=design)
+fit.cont <- contrasts.fit(fit, cont.matrix)
+fit.cont <- eBayes(fit.cont)
+summa.fit <- decideTests(fit.cont)
+summary(summa.fit)
+# Venn diagram
+par(mfrow=c(1,1))
+vennDiagram(summa.fit,include=c("up", "down"),counts.col=c("purple", "black"),
+    circle.col = c("blue", "green3"))
+```
+
+```{r challenge5-code-check}
+grade_this_code()
 ```
