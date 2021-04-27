@@ -36,7 +36,7 @@ barcodeplot(fit.cont$coeff[,2], index=c2.ind[["DANG_REGULATED_BY_MYC_UP"]], main
 grade_this_code()
 ```
 
-2. Produce a barcode plot for the Wnt signalling pathways REACTOME_REPRESSION_OF_WNT_TARGET_GENES
+2. Produce a barcode plot for the Wnt signalling pathway REACTOME_REPRESSION_OF_WNT_TARGET_GENES
 
 ```{r challenge12_2, exercise=TRUE}
 barcodeplot(____, main="L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES")

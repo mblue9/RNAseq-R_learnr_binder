@@ -22,8 +22,7 @@ if(!exists("sampleinfo")) {
 
 ### Challenge 7
 
-1. Generate the MD plot and volcano plot for the second comparison, `L.PregVsLac`. 
-2. Change the number of highlighted genes to 200 in the volcano plot.
+Take the top gene from the L.PregVsLactate comparison and make a stripchart of grouped expression as above. (Don't forget to change the title of the plot.)
 
 ```{r challenge7, exercise=TRUE}
 topTable(____)
