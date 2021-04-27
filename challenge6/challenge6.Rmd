@@ -24,7 +24,6 @@ if(!exists("sampleinfo")) {
 
 1. Generate the MD plot and volcano plot for the second comparison, `L.PregVsLac`. 
 2. Change the number of highlighted genes to 200 in the volcano plot.
-</div>
 
 ```{r challenge6, exercise=TRUE}
 par(____)

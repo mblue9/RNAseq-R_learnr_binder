@@ -1,1 +1,5 @@
 Rscript -e "remotes::install_github('rstudio-education/gradethis')"
+
+# create file containing all learnr challenges
+mkdir challenges_all
+cat challenge*/challenge{0..100}.Rmd >> challenges_all/challenges_all.Rmd 2>/dev/null
