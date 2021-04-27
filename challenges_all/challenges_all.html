@@ -148,7 +148,7 @@ pre code {
 </div>
 
 
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 1</strong></p>
 <ol style="list-style-type: decimal">
 <li>Plot the counts-per-million versus counts for the second sample.</li>
 <li>Add a vertical line at 0.5 and a horizontal line at 10.</li>
@@ -160,7 +160,60 @@ plot(myCPM[,1],countdata[,1],ylim=c(0,50),xlim=c(0,3))
 abline(v=0.5)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 10</strong></p>
+<ol style="list-style-type: decimal">
+<li>Run <code>camera</code> on the second contrast in the contrast matrix.</li>
+<li>Run <code>camera</code> on a different set of MSigDB gene sets, the hallmark datasets, <code>mouse_H_v5.rdata</code>. You will need to load in the hallmark gene sets. Call the object <code>Mm.H</code>.</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge10" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>Mm.H &lt;- readRDS(url(&quot;http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds&quot;))
+H.ind &lt;- ____
+H.camera &lt;- ____
+table(H.camera$FDR &lt; ____)
+H.camera[1:10,]</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<p><strong>Challenge 11</strong></p>
+<ol style="list-style-type: decimal">
+<li>Test whether the MYC signalling pathways tend to be differentially expressed between luminal pregnant vs lactating (the second contrast).</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge11_1" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>myc.rst2 &lt;- ____
+myc.rst2[____]</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Look for gene sets containing “WNT” in the name and see whether they tend to be differentially expressed in basal pregnant vs lactating.</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge11_2" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>wnt &lt;- grep(____)
+wnt.rst &lt;- ____
+wnt.rst[____]</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<p><strong>Challenge 12</strong></p>
+<ol style="list-style-type: decimal">
+<li>Produce a barcodeplot for luminal pregnant vs lactating for the gene set DANG_REGULATED_BY_MYC_UP. Does the pattern of enrichment look as strong?</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge12_1" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: DANG_REGULATED_BY_MYC_UP&quot;)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Produce a barcode plot for the Wnt signalling pathways REACTOME_REPRESSION_OF_WNT_TARGET_GENES</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge12_2" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES&quot;)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>You can put two gene sets on one plot, for example a set that is up-regulated and one that is down-regulated, by adding a gene set to the <code>index2</code> argument. Produce a barcodeplot with the two sets REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY.</li>
+</ol>
+<div class="tutorial-exercise" data-label="challenge12_3" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets&quot;)</code></pre>
+<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
+</div>
+<p><strong>Challenge 2</strong></p>
 <ol style="list-style-type: decimal">
 <li>Redo the plots with the colours for status (lactate, pregnant, virgin): <code>brewer.pal(3,"Dark2")</code></li>
 <li>Change the plotting characters to symbols, such that basal samples have the value <code>1</code> and luminal samples have the value <code>4</code>. HINT: use <code>pch</code> argument.</li>
@@ -176,7 +229,7 @@ legend(&quot;topleft&quot;,____)
 legend(&quot;bottom&quot;, ____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 3</strong></p>
 <ol style="list-style-type: decimal">
 <li>Change the colour scheme to “PiYG” and redo the heatmap. Try <code>?RColorBrewer</code> and see what other colour schemes are available.</li>
 <li>Change the sample names to <code>group</code> using the <code>labCol</code> argument</li>
@@ -198,7 +251,7 @@ least_variable_lcpm &lt;- ____
 heatmap.2(____,col=rev(morecols(50)),trace=&quot;none&quot;, main=&quot;Top 500 least variable genes across samples&quot;,ColSideColors=col.cell,labCol=____,scale=&quot;row&quot;,margins=c(8,5))</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 4</strong></p>
 <p>Plot the biased and unbiased MD plots side by side for the same sample to see the before and after TMM normalisation effect.</p>
 <div class="tutorial-exercise" data-label="challenge4" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>par(____)
@@ -208,7 +261,7 @@ plotMD(____)
 abline(____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 5</strong></p>
 <ol style="list-style-type: decimal">
 <li>Add another contrast to the contrasts matrix: <code>L.PregVsLac = luminal.pregnant - luminal.lactate</code> and re-run the code above. You should have two comparisons in <code>fit.cont</code> now.</li>
 <li>Check out the <code>vennDiagram</code> function (HINT: type <code>?vennDiagram</code>). Can you show the overlap of differentially expressed genes between the two comparisons? How many genes are commonly differentially expressed?</li>
@@ -227,7 +280,7 @@ vennDiagram(____,include=____,counts.col=c(&quot;purple&quot;, &quot;black&quot;
     circle.col = c(&quot;blue&quot;, &quot;green3&quot;))</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 6</strong></p>
 <ol style="list-style-type: decimal">
 <li>Generate the MD plot and volcano plot for the second comparison, <code>L.PregVsLac</code>.</li>
 <li>Change the number of highlighted genes to 200 in the volcano plot.
@@ -239,7 +292,7 @@ plotMD(____)
 volcanoplot(____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 7</strong></p>
 <ol style="list-style-type: decimal">
 <li>Generate the MD plot and volcano plot for the second comparison, <code>L.PregVsLac</code>.</li>
 <li>Change the number of highlighted genes to 200 in the volcano plot.</li>
@@ -249,7 +302,7 @@ volcanoplot(____)</code></pre>
 stripchart(____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 8</strong></p>
 <p>Change the cut-off so that we are interested in genes that change at least 50% on the fold change scale.</p>
 <p>HINT: what is the corresponding logFC value of 50% fold change? Assume basal.pregnant is 50% higher than basal.lactate.</p>
 <div class="tutorial-exercise" data-label="challenge8" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
@@ -260,64 +313,11 @@ summary(____)
 topTable(____)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
-<p><strong>Challenge</strong></p>
+<p><strong>Challenge 9</strong></p>
 <p>Perform GO analysis for the second comparison, “L.PregVsLac”, taking into account gene length information.</p>
 <div class="tutorial-exercise" data-label="challenge9" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>go_LPregvsLac &lt;- goana(____)
 topGO(____)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<p><strong>Challenge</strong></p>
-<ol style="list-style-type: decimal">
-<li>Run <code>camera</code> on the second contrast in the contrast matrix.</li>
-<li>Run <code>camera</code> on a different set of MSigDB gene sets, the hallmark datasets, <code>mouse_H_v5.rdata</code>. You will need to load in the hallmark gene sets. Call the object <code>Mm.H</code>.</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge10" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>Mm.H &lt;- readRDS(url(&quot;http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds&quot;))
-H.ind &lt;- ____
-H.camera &lt;- ____
-table(H.camera$FDR &lt; ____)
-H.camera[1:10,]</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<p><strong>Challenge</strong></p>
-<ol style="list-style-type: decimal">
-<li>Test whether the MYC signalling pathways tend to be differentially expressed between luminal pregnant vs lactating (the second contrast).</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge11_1" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>myc.rst2 &lt;- ____
-myc.rst2[____]</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li>Look for gene sets containing “WNT” in the name and see whether they tend to be differentially expressed in basal pregnant vs lactating.</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge11_2" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>wnt &lt;- grep(____)
-wnt.rst &lt;- ____
-wnt.rst[____]</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<p><strong>Challenge</strong></p>
-<ol style="list-style-type: decimal">
-<li>Produce a barcodeplot for luminal pregnant vs lactating for the gene set DANG_REGULATED_BY_MYC_UP. Does the pattern of enrichment look as strong?</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge12_1" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: DANG_REGULATED_BY_MYC_UP&quot;)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li>Produce a barcode plot for the Wnt signalling pathways REACTOME_REPRESSION_OF_WNT_TARGET_GENES</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge12_2" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES&quot;)</code></pre>
-<script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
-</div>
-<ol start="3" style="list-style-type: decimal">
-<li>You can put two gene sets on one plot, for example a set that is up-regulated and one that is down-regulated, by adding a gene set to the <code>index2</code> argument. Produce a barcodeplot with the two sets REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY.</li>
-</ol>
-<div class="tutorial-exercise" data-label="challenge12_3" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
-<pre class="text"><code>barcodeplot(____, main=&quot;L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets&quot;)</code></pre>
 <script type="application/json" data-ui-opts="1">{"engine":"r","has_checker":true,"caption":"<span data-i18n=\"text.enginecap\" data-i18n-opts=\"{&quot;engine&quot;:&quot;R&quot;}\">R Code<\/span>"}</script>
 </div>
 
@@ -373,6 +373,242 @@ learnr:::store_exercise_cache("challenge1", list(setup = NULL, chunks = list(lis
         "abline(v=0.5)"), out.width.px = 672, out.height.px = 480, 
         params.src = "challenge1, exercise=TRUE", fig.num = 0, 
         exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge10-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge10-code-editor`)), session)
+output$`tutorial-exercise-challenge10-output` <- renderUI({
+  `tutorial-exercise-challenge10-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge10", list(setup = NULL, chunks = list(list(label = "challenge10", 
+    code = "Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))\nH.ind <- ____\nH.camera <- ____\ntable(H.camera$FDR < ____)\nH.camera[1:10,]", 
+    opts = list(label = "\"challenge10\"", exercise = "TRUE"), 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge10-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))", 
+    "H.ind <- ids2indices(Mm.H, rownames(v))", "H.camera <- camera(v,index=H.ind,design=design,contrast = cont.matrix[,1],inter.gene.cor=0.05)", 
+    "table(H.camera$FDR < 0.05)", "H.camera[1:10,]"), chunk_opts = list(
+        label = "challenge10-solution", exercise.reveal_solution = FALSE)), 
+    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, strip.white = TRUE, 
+        size = "normalsize", background = "#F7F7F7", cache = 0, 
+        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
+        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge10", exercise = TRUE, code = c("Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))", 
+        "H.ind <- ____", "H.camera <- ____", "table(H.camera$FDR < ____)", 
+        "H.camera[1:10,]"), out.width.px = 672, out.height.px = 480, 
+        params.src = "challenge10, exercise=TRUE", fig.num = 0, 
+        exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge11_1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge11_1-code-editor`)), session)
+output$`tutorial-exercise-challenge11_1-output` <- renderUI({
+  `tutorial-exercise-challenge11_1-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge11_1", list(setup = NULL, chunks = list(list(label = "challenge11_1", 
+    code = "myc.rst2 <- ____\nmyc.rst2[____]", opts = list(label = "\"challenge11_1\"", 
+        exercise = "TRUE"), engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
+    label = "challenge11_1-code-check")), error_check = NULL, 
+    check = NULL, solution = structure(c("myc.rst2 <- roast(v,index=c2.ind[myc],design=design,contrast=cont.matrix[,2],nrot=999)", 
+    "myc.rst2[1:15,]"), chunk_opts = list(label = "challenge11_1-solution", 
+        exercise.reveal_solution = FALSE)), options = list(eval = FALSE, 
+        echo = TRUE, results = "markup", tidy = FALSE, tidy.opts = NULL, 
+        collapse = FALSE, prompt = FALSE, comment = NA, highlight = FALSE, 
+        strip.white = TRUE, size = "normalsize", background = "#F7F7F7", 
+        cache = 0, cache.path = "challenges_all_cache/html/", 
+        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
+        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
+        fig.show = "asis", fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge11_1", exercise = TRUE, code = c("myc.rst2 <- ____", 
+        "myc.rst2[____]"), out.width.px = 672, out.height.px = 480, 
+        params.src = "challenge11_1, exercise=TRUE", fig.num = 0, 
+        exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge11_2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge11_2-code-editor`)), session)
+output$`tutorial-exercise-challenge11_2-output` <- renderUI({
+  `tutorial-exercise-challenge11_2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge11_2", list(setup = NULL, chunks = list(list(label = "challenge11_2", 
+    code = "wnt <- grep(____)\nwnt.rst <- ____\nwnt.rst[____]", 
+    opts = list(label = "\"challenge11_2\"", exercise = "TRUE"), 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge11_2-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("wnt <- grep(\"WNT\",names(c2.ind))", 
+    "wnt.rst <- roast(v,index=c2.ind[wnt],design=design,contrast=cont.matrix[,1],nrot=999)", 
+    "wnt.rst[1:15,]"), chunk_opts = list(label = "challenge11_2-solution", 
+        exercise.reveal_solution = FALSE)), options = list(eval = FALSE, 
+        echo = TRUE, results = "markup", tidy = FALSE, tidy.opts = NULL, 
+        collapse = FALSE, prompt = FALSE, comment = NA, highlight = FALSE, 
+        strip.white = TRUE, size = "normalsize", background = "#F7F7F7", 
+        cache = 0, cache.path = "challenges_all_cache/html/", 
+        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
+        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
+        fig.show = "asis", fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge11_2", exercise = TRUE, code = c("wnt <- grep(____)", 
+        "wnt.rst <- ____", "wnt.rst[____]"), out.width.px = 672, 
+        out.height.px = 480, params.src = "challenge11_2, exercise=TRUE", 
+        fig.num = 0, exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge12_1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_1-code-editor`)), session)
+output$`tutorial-exercise-challenge12_1-output` <- renderUI({
+  `tutorial-exercise-challenge12_1-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge12_1", list(setup = NULL, chunks = list(list(label = "challenge12_1", 
+    code = "barcodeplot(____, main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", 
+    opts = list(label = "\"challenge12_1\"", exercise = "TRUE"), 
+    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
+    label = "challenge12_1-code-check")), error_check = NULL, 
+    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"DANG_REGULATED_BY_MYC_UP\"]], main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", chunk_opts = list(
+        label = "challenge12_1-solution", exercise.reveal_solution = FALSE)), 
+    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, strip.white = TRUE, 
+        size = "normalsize", background = "#F7F7F7", cache = 0, 
+        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
+        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge12_1", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", 
+        out.width.px = 672, out.height.px = 480, params.src = "challenge12_1, exercise=TRUE", 
+        fig.num = 0, exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge12_2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_2-code-editor`)), session)
+output$`tutorial-exercise-challenge12_2-output` <- renderUI({
+  `tutorial-exercise-challenge12_2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge12_2", list(setup = NULL, chunks = list(list(label = "challenge12_2", 
+    code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", 
+    opts = list(label = "\"challenge12_2\"", exercise = "TRUE"), 
+    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
+    label = "challenge12_2-code-check")), error_check = NULL, 
+    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"REACTOME_REPRESSION_OF_WNT_TARGET_GENES\"]], main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", chunk_opts = list(
+        label = "challenge12_2-solution", exercise.reveal_solution = FALSE)), 
+    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, strip.white = TRUE, 
+        size = "normalsize", background = "#F7F7F7", cache = 0, 
+        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
+        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge12_2", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", 
+        out.width.px = 672, out.height.px = 480, params.src = "challenge12_2, exercise=TRUE", 
+        fig.num = 0, exercise.df_print = "default"), engine = "r"))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-challenge12_3-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_3-code-editor`)), session)
+output$`tutorial-exercise-challenge12_3-output` <- renderUI({
+  `tutorial-exercise-challenge12_3-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache("challenge12_3", list(setup = NULL, chunks = list(list(label = "challenge12_3", 
+    code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", 
+    opts = list(label = "\"challenge12_3\"", exercise = "TRUE"), 
+    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
+    label = "challenge12_3-code-check")), error_check = NULL, 
+    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"REACTOME_REPRESSION_OF_WNT_TARGET_GENES\"]], index2=c2.ind[[\"PID_WNT_CANONICAL_PATHWAY\"]], main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", chunk_opts = list(
+        label = "challenge12_3-solution", exercise.reveal_solution = FALSE)), 
+    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, strip.white = TRUE, 
+        size = "normalsize", background = "#F7F7F7", cache = 0, 
+        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
+        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
+        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
+        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
+        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        label = "challenge12_3", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", 
+        out.width.px = 672, out.height.px = 480, params.src = "challenge12_3, exercise=TRUE", 
+        fig.num = 0, exercise.df_print = "default"), engine = "r"))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -512,11 +748,13 @@ output$`tutorial-exercise-challenge4-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache("challenge4", list(setup = NULL, chunks = list(list(label = "challenge4", code = "par(____)\nplotMD(____)\nabline(____)\nplotMD(____)\nabline(____)", 
     opts = list(label = "\"challenge4\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge4-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("par(mfrow=c(1,2))", "plotMD(logcounts,column = 11)", 
-    "abline(h=0,col=\"grey\")", "plotMD(y,column = 11)", "abline(h=0,col=\"grey\")"
-    ), chunk_opts = list(label = "challenge4-solution", exercise.reveal_solution = FALSE)), 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge4-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("par(mfrow=c(1,2))", 
+    "plotMD(logcounts,column = 11)", "abline(h=0,col=\"grey\")", 
+    "plotMD(y,column = 11)", "abline(h=0,col=\"grey\")"), chunk_opts = list(
+        label = "challenge4-solution", exercise.reveal_solution = FALSE)), 
     options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, strip.white = TRUE, 
@@ -551,9 +789,10 @@ output$`tutorial-exercise-challenge5-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache("challenge5", list(setup = NULL, chunks = list(list(label = "challenge5", code = "cont.matrix <- makeContrasts(B.PregVsLac=____,\n                             L.PregVsLac=____,\n                             levels=____)\nfit.cont <- ____\nfit.cont <- ____\nsumma.fit <- ____\nsummary(____)\n# Venn diagram\npar(mfrow=c(1,1))\nvennDiagram(____,include=____,counts.col=c(\"purple\", \"black\"),\n    circle.col = c(\"blue\", \"green3\"))", 
     opts = list(label = "\"challenge5\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge5-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("cont.matrix <- makeContrasts(B.PregVsLac=basal.pregnant - basal.lactate,", 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge5-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("cont.matrix <- makeContrasts(B.PregVsLac=basal.pregnant - basal.lactate,", 
     "                             L.PregVsLac=luminal.pregnant - luminal.lactate,", 
     "                             levels=design)", "fit.cont <- contrasts.fit(fit, cont.matrix)", 
     "fit.cont <- eBayes(fit.cont)", "summa.fit <- decideTests(fit.cont)", 
@@ -599,9 +838,11 @@ output$`tutorial-exercise-challenge6-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache("challenge6", list(setup = NULL, chunks = list(list(label = "challenge6", code = "par(____)\nplotMD(____)\nvolcanoplot(____)", 
     opts = list(label = "\"challenge6\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge6-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("par(mfrow=c(1,2))", "plotMD(fit.cont,coef=2,status=summa.fit[,\"L.PregVsLac\"], values=c(-1, 1), hl.col=c(\"blue\",\"red\"))", 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge6-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("par(mfrow=c(1,2))", 
+    "plotMD(fit.cont,coef=2,status=summa.fit[,\"L.PregVsLac\"], values=c(-1, 1), hl.col=c(\"blue\",\"red\"))", 
     "volcanoplot(fit.cont,coef=2,highlight=200,names=fit.cont$genes$SYMBOL)"
     ), chunk_opts = list(label = "challenge6-solution", exercise.reveal_solution = FALSE)), 
     options = list(eval = FALSE, echo = TRUE, results = "markup", 
@@ -638,9 +879,10 @@ output$`tutorial-exercise-challenge7-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache("challenge7", list(setup = NULL, chunks = list(list(label = "challenge7", code = "topTable(____)\nstripchart(____)", 
     opts = list(label = "\"challenge7\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge7-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("topTable(fit.cont,coef=2,sort.by=\"p\")", 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge7-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("topTable(fit.cont,coef=2,sort.by=\"p\")", 
     "stripchart(v$E[\"12992\",]~group,vertical=TRUE,las=2,cex.axis=0.8,pch=16,cex=1.3,col=nice.col,method=\"jitter\",ylab=\"Normalised log2 expression\",main=\"Csn1s2b\", cex.axis=0.6)"
     ), chunk_opts = list(label = "challenge7-solution", exercise.reveal_solution = FALSE)), 
     options = list(eval = FALSE, echo = TRUE, results = "markup", 
@@ -677,12 +919,13 @@ output$`tutorial-exercise-challenge8-output` <- renderUI({
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache("challenge8", list(setup = NULL, chunks = list(list(label = "challenge8", code = "cutoff <- log2(____)\nfit.treat <- treat(____)\nres.treat <- decideTests(___)\nsummary(____)\ntopTable(____)", 
     opts = list(label = "\"challenge8\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge8-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("cutoff <- log2(1.5)", "fit.treat <- treat(fit.cont,lfc=cutoff)", 
-    "res.treat <- decideTests(fit.treat)", "summary(res.treat)", 
-    "topTable(fit.treat,coef=1,sort.by=\"p\")"), chunk_opts = list(
-        label = "challenge8-solution", exercise.reveal_solution = FALSE)), 
+    engine = "r")), code_check = structure(c("grade_this_code()", 
+"```---", "output: ", "  html_document", "runtime: shiny_prerendered", 
+"---", ""), chunk_opts = list(label = "challenge8-code-check")), 
+    error_check = NULL, check = NULL, solution = structure(c("cutoff <- log2(1.5)", 
+    "fit.treat <- treat(fit.cont,lfc=cutoff)", "res.treat <- decideTests(fit.treat)", 
+    "summary(res.treat)", "topTable(fit.treat,coef=1,sort.by=\"p\")"
+    ), chunk_opts = list(label = "challenge8-solution", exercise.reveal_solution = FALSE)), 
     options = list(eval = FALSE, echo = TRUE, results = "markup", 
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, strip.white = TRUE, 
@@ -745,240 +988,6 @@ learnr:::store_exercise_cache("challenge9", list(setup = NULL, chunks = list(lis
         "topGO(____)"), out.width.px = 672, out.height.px = 480, 
         params.src = "challenge9, exercise=TRUE", fig.num = 0, 
         exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge10-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge10-code-editor`)), session)
-output$`tutorial-exercise-challenge10-output` <- renderUI({
-  `tutorial-exercise-challenge10-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge10", list(setup = NULL, chunks = list(list(label = "challenge10", 
-    code = "Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))\nH.ind <- ____\nH.camera <- ____\ntable(H.camera$FDR < ____)\nH.camera[1:10,]", 
-    opts = list(label = "\"challenge10\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge10-code-check")), error_check = NULL, check = NULL, 
-    solution = structure(c("Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))", 
-    "H.ind <- ids2indices(Mm.H, rownames(v))", "H.camera <- camera(v,index=H.ind,design=design,contrast = cont.matrix[,1],inter.gene.cor=0.05)", 
-    "table(H.camera$FDR < 0.05)", "H.camera[1:10,]"), chunk_opts = list(
-        label = "challenge10-solution", exercise.reveal_solution = FALSE)), 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, strip.white = TRUE, 
-        size = "normalsize", background = "#F7F7F7", cache = 0, 
-        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
-        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
-        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge10", exercise = TRUE, code = c("Mm.H <- readRDS(url(\"http://bioinf.wehi.edu.au/MSigDB/v7.1/Mm.h.all.v7.1.entrez.rds\"))", 
-        "H.ind <- ____", "H.camera <- ____", "table(H.camera$FDR < ____)", 
-        "H.camera[1:10,]"), out.width.px = 672, out.height.px = 480, 
-        params.src = "challenge10, exercise=TRUE", fig.num = 0, 
-        exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge11_1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge11_1-code-editor`)), session)
-output$`tutorial-exercise-challenge11_1-output` <- renderUI({
-  `tutorial-exercise-challenge11_1-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge11_1", list(setup = NULL, chunks = list(list(label = "challenge11_1", 
-    code = "myc.rst2 <- ____\nmyc.rst2[____]", opts = list(label = "\"challenge11_1\"", 
-        exercise = "TRUE"), engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge11_1-code-check")), error_check = NULL, 
-    check = NULL, solution = structure(c("myc.rst2 <- roast(v,index=c2.ind[myc],design=design,contrast=cont.matrix[,2],nrot=999)", 
-    "myc.rst2[1:15,]"), chunk_opts = list(label = "challenge11_1-solution", 
-        exercise.reveal_solution = FALSE)), options = list(eval = FALSE, 
-        echo = TRUE, results = "markup", tidy = FALSE, tidy.opts = NULL, 
-        collapse = FALSE, prompt = FALSE, comment = NA, highlight = FALSE, 
-        strip.white = TRUE, size = "normalsize", background = "#F7F7F7", 
-        cache = 0, cache.path = "challenges_all_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge11_1", exercise = TRUE, code = c("myc.rst2 <- ____", 
-        "myc.rst2[____]"), out.width.px = 672, out.height.px = 480, 
-        params.src = "challenge11_1, exercise=TRUE", fig.num = 0, 
-        exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge11_2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge11_2-code-editor`)), session)
-output$`tutorial-exercise-challenge11_2-output` <- renderUI({
-  `tutorial-exercise-challenge11_2-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge11_2", list(setup = NULL, chunks = list(list(label = "challenge11_2", 
-    code = "wnt <- grep(____)\nwnt.rst <- ____\nwnt.rst[____]", 
-    opts = list(label = "\"challenge11_2\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge11_2-code-check")), error_check = NULL, 
-    check = NULL, solution = structure(c("wnt <- grep(\"WNT\",names(c2.ind))", 
-    "wnt.rst <- roast(v,index=c2.ind[wnt],design=design,contrast=cont.matrix[,1],nrot=999)", 
-    "wnt.rst[1:15,]"), chunk_opts = list(label = "challenge11_2-solution", 
-        exercise.reveal_solution = FALSE)), options = list(eval = FALSE, 
-        echo = TRUE, results = "markup", tidy = FALSE, tidy.opts = NULL, 
-        collapse = FALSE, prompt = FALSE, comment = NA, highlight = FALSE, 
-        strip.white = TRUE, size = "normalsize", background = "#F7F7F7", 
-        cache = 0, cache.path = "challenges_all_cache/html/", 
-        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
-        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
-        fig.show = "asis", fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge11_2", exercise = TRUE, code = c("wnt <- grep(____)", 
-        "wnt.rst <- ____", "wnt.rst[____]"), out.width.px = 672, 
-        out.height.px = 480, params.src = "challenge11_2, exercise=TRUE", 
-        fig.num = 0, exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge12_1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_1-code-editor`)), session)
-output$`tutorial-exercise-challenge12_1-output` <- renderUI({
-  `tutorial-exercise-challenge12_1-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge12_1", list(setup = NULL, chunks = list(list(label = "challenge12_1", 
-    code = "barcodeplot(____, main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", 
-    opts = list(label = "\"challenge12_1\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge12_1-code-check")), error_check = NULL, 
-    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"DANG_REGULATED_BY_MYC_UP\"]], main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", chunk_opts = list(
-        label = "challenge12_1-solution", exercise.reveal_solution = FALSE)), 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, strip.white = TRUE, 
-        size = "normalsize", background = "#F7F7F7", cache = 0, 
-        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
-        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
-        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge12_1", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: DANG_REGULATED_BY_MYC_UP\")", 
-        out.width.px = 672, out.height.px = 480, params.src = "challenge12_1, exercise=TRUE", 
-        fig.num = 0, exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge12_2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_2-code-editor`)), session)
-output$`tutorial-exercise-challenge12_2-output` <- renderUI({
-  `tutorial-exercise-challenge12_2-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge12_2", list(setup = NULL, chunks = list(list(label = "challenge12_2", 
-    code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", 
-    opts = list(label = "\"challenge12_2\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge12_2-code-check")), error_check = NULL, 
-    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"REACTOME_REPRESSION_OF_WNT_TARGET_GENES\"]], main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", chunk_opts = list(
-        label = "challenge12_2-solution", exercise.reveal_solution = FALSE)), 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, strip.white = TRUE, 
-        size = "normalsize", background = "#F7F7F7", cache = 0, 
-        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
-        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
-        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge12_2", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES\")", 
-        out.width.px = 672, out.height.px = 480, params.src = "challenge12_2, exercise=TRUE", 
-        fig.num = 0, exercise.df_print = "default"), engine = "r"))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-challenge12_3-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-challenge12_3-code-editor`)), session)
-output$`tutorial-exercise-challenge12_3-output` <- renderUI({
-  `tutorial-exercise-challenge12_3-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache("challenge12_3", list(setup = NULL, chunks = list(list(label = "challenge12_3", 
-    code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", 
-    opts = list(label = "\"challenge12_3\"", exercise = "TRUE"), 
-    engine = "r")), code_check = structure("grade_this_code()", chunk_opts = list(
-    label = "challenge12_3-code-check")), error_check = NULL, 
-    check = NULL, solution = structure("barcodeplot(fit.cont$coeff[,2], index=c2.ind[[\"REACTOME_REPRESSION_OF_WNT_TARGET_GENES\"]], index2=c2.ind[[\"PID_WNT_CANONICAL_PATHWAY\"]], main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", chunk_opts = list(
-        label = "challenge12_3-solution", exercise.reveal_solution = FALSE)), 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, strip.white = TRUE, 
-        size = "normalsize", background = "#F7F7F7", cache = 0, 
-        cache.path = "challenges_all_cache/html/", cache.vars = NULL, 
-        cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
-        cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "challenges_all_files/figure-html/", 
-        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
-        fig.width = 7, fig.height = 5, fig.env = "figure", fig.cap = NULL, 
-        fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
-        fig.pos = "", out.width = 672, out.height = NULL, out.extra = NULL, 
-        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
-        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
-        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
-        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
-        tutorial = TRUE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, ...) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "challenge12_3", exercise = TRUE, code = "barcodeplot(____, main=\"L.PregVsLac: REACTOME_REPRESSION_OF_WNT_TARGET_GENES and PID_WNT_CANONICAL_PATHWAY sets\")", 
-        out.width.px = 672, out.height.px = 480, params.src = "challenge12_3, exercise=TRUE", 
-        fig.num = 0, exercise.df_print = "default"), engine = "r"))
 </script>
  <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
