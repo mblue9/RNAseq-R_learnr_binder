@@ -1,6 +1,8 @@
 ---
 output: 
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
 runtime: shiny_prerendered
 ---
 
@@ -17,7 +19,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 1**
+### Challenge 1
 
 1. Plot the counts-per-million versus counts for the second sample.
 2. Add a vertical line at 0.5 and a horizontal line at 10.
@@ -39,3 +41,6 @@ abline(h=10,col="blue")
 ```{r challenge1-code-check}
 grade_this_code()
 ```
+
+<br>
+

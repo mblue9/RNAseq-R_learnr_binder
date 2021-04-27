@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 11**
+### Challenge 11
 
 1. Test whether the MYC signalling pathways tend to be differentially expressed between luminal pregnant vs lactating (the second contrast).
 
@@ -55,3 +55,6 @@ wnt.rst[1:15,]
 ```{r challenge11_2-code-check}
 grade_this_code()
 ```
+
+<br>
+

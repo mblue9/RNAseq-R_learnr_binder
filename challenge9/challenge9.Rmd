@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 9**
+### Challenge 9
 
 Perform GO analysis for the second comparison, "L.PregVsLac", taking into account gene length information.
 
@@ -38,3 +38,6 @@ topGO(go_LPregvsLac, n=10)
 ```{r challenge9-code-check}
 grade_this_code()
 ```
+
+<br>
+

@@ -21,7 +21,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 3**
+### Challenge 3
 
 1. Change the colour scheme to "PiYG" and redo the heatmap. Try `?RColorBrewer` and see what other colour schemes are available.
 2. Change the sample names to `group` using the `labCol` argument
@@ -67,4 +67,6 @@ heatmap.2(least_variable_lcpm,col=rev(morecols(50)),trace="none", main="Top 500 
 ```{r challenge3_3-code-check}
 grade_this_code()
 ```
+
+<br>
 

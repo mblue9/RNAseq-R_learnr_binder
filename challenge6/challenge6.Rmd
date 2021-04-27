@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 6**
+### Challenge 6
 
 1. Generate the MD plot and volcano plot for the second comparison, `L.PregVsLac`. 
 2. Change the number of highlighted genes to 200 in the volcano plot.
@@ -40,3 +40,6 @@ volcanoplot(fit.cont,coef=2,highlight=200,names=fit.cont$genes$SYMBOL)
 ```{r challenge6-code-check}
 grade_this_code()
 ```
+
+<br>
+

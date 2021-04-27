@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 5**
+### Challenge 5
 
 1. Add another contrast to the contrasts matrix: `L.PregVsLac = luminal.pregnant - luminal.lactate` and re-run the code above. You should have two comparisons in `fit.cont` now.
 2. Check out the `vennDiagram` function
@@ -58,3 +58,6 @@ vennDiagram(summa.fit,include=c("up", "down"),counts.col=c("purple", "black"),
 ```{r challenge5-code-check}
 grade_this_code()
 ```
+
+<br>
+

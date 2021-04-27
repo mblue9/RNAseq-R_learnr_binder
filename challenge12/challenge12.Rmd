@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 12**
+### Challenge 12
 
 1. Produce a barcodeplot for luminal pregnant vs lactating for the gene set DANG_REGULATED_BY_MYC_UP. Does the pattern of enrichment look as strong?
 
@@ -64,3 +64,6 @@ barcodeplot(fit.cont$coeff[,2], index=c2.ind[["REACTOME_REPRESSION_OF_WNT_TARGET
 ```{r challenge12_3-code-check}
 grade_this_code()
 ```
+
+<br>
+

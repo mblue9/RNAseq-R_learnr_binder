@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 10**
+### Challenge 10
 
 1. Run `camera` on the second contrast in the contrast matrix.
 2. Run `camera` on a different set of MSigDB gene sets, the hallmark datasets, `mouse_H_v5.rdata`.
@@ -45,3 +45,6 @@ H.camera[1:10,]
 ```{r challenge10-code-check}
 grade_this_code()
 ```
+
+<br>
+

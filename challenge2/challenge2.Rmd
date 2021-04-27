@@ -21,7 +21,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 2**
+### Challenge 2
 
 1. Redo the plots with the colours for status (lactate, pregnant, virgin): `brewer.pal(3,"Dark2")`
 2. Change the plotting characters to symbols, such that basal samples have the value `1` and luminal samples have the value `4`. HINT: use `pch` argument.
@@ -50,3 +50,6 @@ legend("bottom",legend=levels(sampleinfo$CellType),pch=c(1,4))
 ```{r challenge2-code-check}
 grade_this_code()
 ```
+
+<br>
+

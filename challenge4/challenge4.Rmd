@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 4**
+### Challenge 4
 
 Plot the biased and unbiased MD plots side by side for the same sample to see the before and after TMM normalisation effect.
 
@@ -43,3 +43,6 @@ abline(h=0,col="grey")
 ```{r challenge4-code-check}
 grade_this_code()
 ```
+
+<br>
+

@@ -20,7 +20,7 @@ if(!exists("sampleinfo")) {
 }
 ```
 
-**Challenge 8**
+### Challenge 8
 
 Change the cut-off so that we are interested in genes that change at least 50\% on the fold change scale.
 
@@ -45,3 +45,6 @@ topTable(fit.treat,coef=1,sort.by="p")
 ```{r challenge8-code-check}
 grade_this_code()
 ```
+
+<br>
+
